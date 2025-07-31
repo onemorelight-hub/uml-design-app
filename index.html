@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Anjan Jana's passion-driven work in technology and business, and connect for collaboration or hiring opportunities.">
+    <title>Anjan Jana | Passion for Technology & Business</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f9fafb, #e5e7eb);
+            color: #1f2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* Header Section Styling */
+        header {
+            background: linear-gradient(90deg, #1e3a8a, #4b5e9e);
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid transparent;
+            border-image: linear-gradient(90deg, #d4af37, #1e3a8a) 1;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: slideInDown 0.8s ease-out 0.2s forwards;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
+            opacity: 0.3;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        header p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        header .cta-button {
+            background: #d4af37;
+            color: #1e3a8a;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        header .cta-button:hover {
+            background: #b8972e;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        /* Quote Section Styling */
+        .quote-section {
+            background: #ffffff;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #d4af37, #1e3a8a) 1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+        .quote-section blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+        .quote-section p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #4b5563;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 0.6s forwards;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37, #1e3a8a);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+        /* Horizontal Scroll Product Grid */
+        .product-grid {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 1rem;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: #d4af37 #e5e7eb;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 0.8s forwards;
+        }
+        .product-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+        .product-grid::-webkit-scrollbar-track {
+            background: #e5e7eb;
+            border-radius: 4px;
+        }
+        .product-grid::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 4px;
+        }
+        .product-grid::-webkit-scrollbar-thumb:hover {
+            background: #b8972e;
+        }
+        .product-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 1.5rem;
+            min-width: 320px;
+            max-width: 320px;
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #d4af37, #1e3a8a) 1;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: calc(0.2s * var(--i));
+            transition: all 0.3s ease;
+        }
+        .product-item:nth-child(1) { --i: 1; }
+        .product-item:nth-child(2) { --i: 2; }
+        .product-item:nth-child(3) { --i: 3; }
+        .product-item:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-image: linear-gradient(45deg, #b8972e, #1e3a8a) 1;
+        }
+        .product-item img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+            transition: transform 0.3s ease;
+        }
+        .product-item img:hover {
+            transform: scale(1.03);
+        }
+        .product-item h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem;
+            color: #1e3a8a;
+        }
+        .product-item h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+        .product-item p {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+        .product-item .last-updated {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        .product-item button {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .product-item button:hover {
+            background: #d4af37;
+            color: #1e3a8a;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        /* Profiles Section Styling */
+        .profiles-section {
+            background: #ffffff;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #d4af37, #1e3a8a) 1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease-out 0.9s forwards;
+        }
+        .profiles-section .profile-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .profiles-section .profile-links a {
+            color: #1e3a8a;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .profiles-section .profile-links a:hover {
+            color: #d4af37;
+            transform: translateY(-3px);
+        }
+        /* Certificates Section Styling */
+        .certificates-grid {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 1rem;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: #d4af37 #e5e7eb;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 1s forwards;
+        }
+        .certificates-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+        .certificates-grid::-webkit-scrollbar-track {
+            background: #e5e7eb;
+            border-radius: 4px;
+        }
+        .certificates-grid::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 4px;
+        }
+        .certificates-grid::-webkit-scrollbar-thumb:hover {
+            background: #b8972e;
+        }
+        .certificate-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 1.5rem;
+            min-width: 320px;
+            max-width: 320px;
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #d4af37, #1e3a8a) 1;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: calc(0.2s * var(--i));
+            transition: all 0.3s ease;
+        }
+        .certificate-item:nth-child(1) { --i: 1; }
+        .certificate-item:nth-child(2) { --i: 2; }
+        .certificate-item:nth-child(3) { --i: 3; }
+        .certificate-item:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-image: linear-gradient(45deg, #b8972e, #1e3a8a) 1;
+        }
+        .certificate-item iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+            margin-bottom: 1rem;
+        }
+        .certificate-item h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
+            color: #1e3a8a;
+        }
+        .certificate-item h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+        .certificate-item p {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+        .certificate-item .issued-date {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        .certificate-item .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .certificate-item button {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .certificate-item button:hover {
+            background: #d4af37;
+            color: #1e3a8a;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        /* Carousel Section Styling */
+        .carousel-section {
+            background: #ffffff;
+            padding: 2rem 1rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #d4af37, #1e3a8a) 1;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease-out 1.1s forwards;
+        }
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        .carousel-item {
+            min-width: 100%;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        .carousel-item.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+        }
+        .carousel-item p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+        .carousel-item .author {
+            font-size: 0.9rem;
+            color: #4b5563;
+            font-weight: 600;
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-controls button {
+            background: #d4af37;
+            color: #1e3a8a;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .carousel-controls button:hover {
+            background: #b8972e;
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        /* Footer Section Styling */
+        footer {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+            border-top: 4px solid transparent;
+            border-image: linear-gradient(90deg, #d4af37, #1e3a8a) 1;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease-out 1.2s forwards;
+        }
+        footer h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        footer p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        footer .social-links a {
+            color: #d4af37;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        footer .social-links a:hover {
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+        footer a.email-link {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        footer a.email-link:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+        footer .copyright {
+            font-size: 0.9rem;
+            color: #d4af37;
+            margin-top: 1rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 1.4s forwards;
+        }
+        /* Animation Keyframes */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            header p {
+                font-size: 1.1rem;
+            }
+            header .cta-button {
+                padding: 0.6rem 1.5rem;
+                font-size: 1rem;
+            }
+            .quote-section blockquote {
+                font-size: 1.4rem;
+            }
+            .quote-section p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .product-item, .certificate-item {
+                min-width: 280px;
+                max-width: 280px;
+            }
+            .product-item img {
+                height: 150px;
+            }
+            .certificate-item iframe {
+                height: 150px;
+            }
+            .product-item h2, .certificate-item h2 {
+                font-size: 1.5rem;
+            }
+            .product-item h3, .certificate-item h3 {
+                font-size: 1rem;
+            }
+            .product-item .last-updated, .certificate-item .issued-date {
+                font-size: 0.8rem;
+            }
+            .certificate-item button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+            .carousel-item p {
+                font-size: 1rem;
+            }
+            .carousel-controls button {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+            footer h2 {
+                font-size: 1.6rem;
+            }
+            footer p {
+                font-size: 1rem;
+            }
+            footer .copyright {
+                font-size: 0.8rem;
+            }
+            .profiles-section .profile-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Anjan Jana's Passion for Technology & Business</h1>
+        <p>Explore my dedicated work in creating impactful tech and business solutions</p>
+        <button class="cta-button" onclick="redirectTo('https://www.linkedin.com/in/anjan-jana')">Connect with Me</button>
+    </header>
+
+    <!-- Quote Section -->
+    <div class="quote-section">
+        <blockquote>“Think. Before you do. And Do. ..”</blockquote>
+        <p>‘… it may seem hard to get to it, but you can do it and just keep working towards it.’</p>
+    </div>
+
+    <!-- Interested Work Section -->
+    <div class="container">
+        <h2 class="section-title">My Interested Work</h2>
+        <div class="product-grid">
+            <!-- Project 1: TechFlow -->
+            <div class="product-item">
+                <img src="images/ap1.png" alt="TechFlow">
+                <h2>TechFlow</h2>
+                <h3>Streamlined Technology Solutions</h3>
+                <p>A project born from my passion for simplifying workflows through technology, delivering efficient and user-friendly tools.</p>
+                <p class="last-updated">Last Updated: July 2025</p>
+                <button onclick="redirectTo('https://example.com/project1')">Explore Project</button>
+            </div>
+            <!-- Project 2: GrowEasy -->
+            <div class="product-item">
+                <img src="images/ap2.png" alt="GrowEasy">
+                <h2>GrowEasy</h2>
+                <h3>Business Growth Platform</h3>
+                <p>A platform driven by my desire to empower businesses with intuitive tools for growth and productivity.</p>
+                <p class="last-updated">Last Updated: July 2025</p>
+                <button onclick="redirectTo('https://example.com/project2')">Explore Project</button>
+            </div>
+            <!-- Project 3: ConnectSphere -->
+            <div class="product-item">
+                <img src="images/ap3.png" alt="ConnectSphere">
+                <h2>ConnectSphere</h2>
+                <h3>Collaborative Business Hub</h3>
+                <p>A solution reflecting my commitment to fostering seamless collaboration in tech-driven business environments.</p>
+                <p class="last-updated">Last Updated: July 2025</p>
+                <button onclick="redirectTo('https://example.com/project3')">Explore Project</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profiles Section (GitHub and Docker Hub) -->
+    <div class="container">
+        <h2 class="section-title">My Profiles</h2>
+        <div class="profiles-section">
+            <p>Explore my open-source contributions and containerized projects.</p>
+            <div class="profile-links">
+                <a href="https://github.com/anjanjana" target="_blank" title="Visit GitHub Profile">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://hub.docker.com/u/anjanjana" target="_blank" title="Visit Docker Hub Profile">
+                    <i class="fab fa-docker"></i> Docker Hub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificates Section -->
+    <div class="container">
+        <h2 class="section-title">My Certificates</h2>
+        <div class="certificates-grid">
+            <!-- Certificate 1 -->
+            <div class="certificate-item">
+                <iframe src="pdfs/python_cert.pdf" frameborder="0"></iframe>
+                <h2>Python Programming</h2>
+                <h3>Coursera</h3>
+                <p>Completed an advanced course in Python programming, focusing on data structures and algorithms.</p>
+                <p class="issued-date">Issued: June 2024</p>
+                <div class="button-group">
+                    <button onclick="redirectTo('https://www.coursera.org')">View Certificate</button>
+                </div>
+            </div>
+            <!-- Certificate 2 -->
+            <div class="certificate-item">
+                <iframe src="pdfs/pdf1.pdf" frameborder="0"></iframe>
+                <h2>Docker Certified Associate</h2>
+                <h3>Docker Inc.</h3>
+                <p>Certified in containerization and orchestration using Docker for enterprise applications.</p>
+                <p class="issued-date">Issued: August 2024</p>
+                <div class="button-group">
+                    <button onclick="redirectTo('https://www.docker.com')">View Certificate</button>
+                </div>
+            </div>
+            <!-- Certificate 3 -->
+            <div class="certificate-item">
+                <iframe src="pdfs/aws_cert.pdf" frameborder="0"></iframe>
+                <h2>AWS Solutions Architect</h2>
+                <h3>Amazon Web Services</h3>
+                <p>Mastered cloud architecture and deployment strategies on AWS.</p>
+                <p class="issued-date">Issued: January 2025</p>
+                <div class="button-group">
+                    <button onclick="redirectTo('https://aws.amazon.com/certification')">View Certificate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="container">
+        <h2 class="section-title">What Colleagues Say About Me</h2>
+        <div class="carousel-section">
+            <div class="carousel">
+                <!-- Testimonial 1 -->
+                <div class="carousel-item active">
+                    <p>“Anjan is a dedicated professional with a strong passion for technology, always delivering impactful solutions.”</p>
+                    <p class="author">— John Doe, Senior Developer</p>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="carousel-item">
+                    <p>“Working with Anjan was a pleasure; his enthusiasm for business and tech drives exceptional results.”</p>
+                    <p class="author">— Jane Smith, Product Manager</p>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="carousel-item">
+                    <p>“Anjan’s commitment to his projects is inspiring, making him a valuable asset to any team.”</p>
+                    <p class="author">— Alex Brown, Business Analyst</p>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+                <button onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <h2>Join Me in Shaping the Future</h2>
+        <p>Passionate about technology and business? Let’s collaborate or explore hiring opportunities!</p>
+        <p>Contact: <a class="email-link" href="mailto:link2anjan@gmail.com">link2anjan@gmail.com</a></p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/anjan-jana" target="_blank" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="copyright">&copy; 2025 Anjan Jana. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Redirect function for external links
+        function redirectTo(url) {
+            window.location.href = url;
+        }
+
+        // Download function for PDFs
+        function downloadFile(url) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = url.split('/').pop();
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            // Normalize index to stay within bounds
+            if (index >= totalSlides) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = index;
+            }
+
+            // Update slide visibility
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                slide.style.transform = `translateX(${(i - currentSlide) * 100}%)`;
+                if (i === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Auto-slide every 5 seconds
+        let autoSlideInterval = setInterval(nextSlide, 5000);
+
+        // Pause auto-slide on hover
+        const carouselSection = document.querySelector('.carousel-section');
+        carouselSection.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+        carouselSection.addEventListener('mouseleave', () => {
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        });
+
+        // Initialize carousel
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
